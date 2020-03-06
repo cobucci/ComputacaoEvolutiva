@@ -1,52 +1,7 @@
-#include <iostream>
-#include <list>
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
-#include <fstream>
-#include <vector>
-
-
+#include <bits/stdc++.h>
+#include "ag.h"
 
 using namespace std;
-
-
-//binario
-
-void populacaoInicialBinario(int nIndividuos, int dimensao);
-void populacaoInicialInt(int nIndividuos);
-void populacaoInicialReal(int nIndividuos);
-
-
-int main(){
-
-    srand (time(NULL));
-    ifstream myReadFile;
-    myReadFile.open("arquivo.txt");
-    vector <int> opcoes;
-    if (myReadFile.is_open()) {
-      while (!myReadFile.eof()) {
-        int aux;
-        myReadFile >> aux;
-        if (aux != -1){
-            opcoes.push_back(aux);
-        }
-     }
-   }
-   
-   myReadFile.close();
-   if(opcoes[0] == 1){
-     populacaoInicialBinario(opcoes[1], opcoes[2]);
-   }
-   else if(opcoes[0] == 2){
-     populacaoInicialInt(opcoes[1]);
-   }
-   else if(opcoes[0] == 3){
-     populacaoInicialReal(opcoes[1]);
-   }
-
-   return 0;
-}
-
 
 void populacaoInicialBinario(int nIndividuos, int dimensao){
 
