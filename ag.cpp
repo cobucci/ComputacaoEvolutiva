@@ -49,11 +49,43 @@ void populacaoInicialInt(int nIndividuos){
 
 }
 
-void populacaoInicialReal(int nIndividuos){
+
+void populacaoInicialIntPermutado(int nIndividuos){
+
+  vector <int> aux;
 
   int vetorPopulacaoInicial[nIndividuos];
   for(int i=0 ; i<nIndividuos ; i++){
-    vetorPopulacaoInicial[i] = rand() % 21 + (-10);
+    int r1 = rand() % 16 + (-5);
+    bool verifica = verificacaoPermutacao(r1, aux);
+    while(!verifica){
+      r1 = rand() % 16 + (-5);
+      verifica = verificacaoPermutacao(r1, aux);
+    }
+    vetorPopulacaoInicial[i] = r1;
+    aux.push_back(r1);
+    cout << vetorPopulacaoInicial[i] << " ";
+  }
+  cout << endl;
+}
+
+bool verificacaoPermutacao(int num, vector<int> aux){
+
+  for(int i=0 ; i<aux.size() ; i++){
+    if(num == aux[i]){
+      return false;
+    }
+  }
+  return true;
+}
+
+
+void populacaoInicialReal(int nIndividuos){
+
+  float vetorPopulacaoInicial[nIndividuos];
+  for(int i=0 ; i<nIndividuos ; i++){
+    float r = -10 + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(10-(-10))));
+    vetorPopulacaoInicial[i] = r;
     cout << vetorPopulacaoInicial[i] << " ";
   }
   cout << endl;

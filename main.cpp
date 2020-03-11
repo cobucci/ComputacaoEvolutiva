@@ -24,7 +24,13 @@ int main(){
      populacaoInicialBinario(opcoes[1], opcoes[2]);
    }
    else if(opcoes[0] == 2){
-     populacaoInicialInt(opcoes[1]);
+     if (opcoes[1] == 1){
+        populacaoInicialInt(opcoes[2]);
+     }
+     else if (opcoes[1] == 2){
+       populacaoInicialIntPermutado(opcoes[2]);
+     }
+
    }
    else if(opcoes[0] == 3){
      populacaoInicialReal(opcoes[1]);
